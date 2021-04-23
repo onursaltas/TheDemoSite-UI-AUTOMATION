@@ -10,6 +10,9 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import cucumber.api.Scenario;
 
 public class InitialTest {
 
@@ -35,6 +38,14 @@ public class InitialTest {
     public static void tearDown() {
         driver.quit();
     }
+    //Hata olduğunda ekran görüntüsü almak için kullanılabilir.
+    /*@AfterClass
+	public void tearDown(Scenario scenario) {
+		if(scenario.isFailed()) {
+			byte[] screenshot =  ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png");
+		}	
+	}*/
 
 
 }
